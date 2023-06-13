@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<META charset="UTF-8">
+<TITLE>login</TITLE>
+<STYLE>
+	#photobox{
+		margin: 5px;
+		padding: 10px;
+		border-style: solid;
+		border-width: 5px;
+		border-color: orange;
+		width: 200;
+		height: 300;
+		background: black;
+	}
+	#detailbox{
+		display: inline-block;
+		margin: 10px;
+		padding: 20px;
+		border-style: dotted;
+		border-width: 2px;
+		width: :500px;
+	}
+	img{
+		width: 100%;
+		height: 100%;
+	}
+	.nameText{
+		font-size: 30px;
+	}
+	.detailText{
+		font-size: 20px;
+	}
+</STYLE>
+<SCRIPT>
+	function checkName(){
+	  var inputName =document.getElementById("inputTextBox");
+	  if(inputName.value == ""){
+	  	//alert("입력해 주세요.")
+	  	inputName.style ="background-color:red;";
+	  } else {
+	  	//alert(inputName.value + "님 안녕하세요.");
+				console.log(inputName.value);
+				document.getElementById("nametext").innerHTML =inputName.value;
+				 var photoFileName;
+				 if (inputName.value == "페코린느") {
+				 	photoFileName = "peco.png";
+				 }else if (inputName.value == "캬루") {
+				 	photoFileName = "kyaru.png";
+				 } else{
+				 	photoFileName= "Noimage.png";
+				 }
+				 document.getElementById("Profile").src = photoFileName;
+			}
+		}
+		function showPhoto() {
+			document.getElementById("Profile").src = "peco.png";
+		}
+		function hidePhoto() {
+			document.getElementById("Profile").src = "Noimage.png";
+		}
+	
+</SCRIPT>
+</HEAD>
+<BODY>
+	<input type="text" id="inputTextBox" oninput="checkName()">
+	<input type="button" value="입력하기" onclick="checkName()">
+<div id="peco" class="photobox"onmouseover="showPhoto()" onmouseout="hidePhoto()"style="width: 250px; height: 300px; background: skyblue;">
+	<IMG id="Profile" src="peco.png"/><br>
+</DIV>
+<div id="detailbox">
+	<h3><span id="nametext" class="nameText">페코린느</span></h3>
+	<ol>
+		<li class="detailText">왕녀
+		<li class="detailText">경력: 많이먹음</li>
+		<li class="detailText">현재: 학생</li>
+	</ol>
+	</div>
+</BODY>
+</HTML>	
